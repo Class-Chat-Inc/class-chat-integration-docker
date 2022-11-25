@@ -1,8 +1,8 @@
 FROM openjdk:18-jdk-oraclelinux8
 
-RUN yum update
+# RUN yum update
 
-RUN yum install -y libgtk2.0-0 \
+RUN rpm -i libgtk2.0-0 \
 libgtk-3-0 \
 libgbm-dev \
 libnotify-dev \
