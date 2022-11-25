@@ -1,4 +1,4 @@
-FROM cypress/included:latest
+FROM cypress/browsers:latest
 
 FROM openjdk:18-jdk-oraclelinux8
 
