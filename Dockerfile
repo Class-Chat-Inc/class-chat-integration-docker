@@ -2,8 +2,6 @@ FROM cypress/browsers:latest
 
 RUN apt-get update
 
-RUN apt-get install -y procps && rm -rf /var/lib/apt/lists/*
-
 RUN apt-get install -y libgtk2.0-0 \
 libgtk-3-0 \
 libgbm-dev \
@@ -16,9 +14,20 @@ libxtst6 \
 xauth \
 xvfb
 
-# FROM openjdk:18-jdk-oraclelinux8
+FROM openjdk:18-jdk-oraclelinux8
 
-RUN microdnf install findutils git
+RUN microdnf install findutils git\
+libgtk2.0-0 \
+libgtk-3-0 \
+libgbm-dev \
+libnotify-dev \
+libgconf-2-4 \
+libnss3 \
+libxss1 \
+libasound2 \
+libxtst6 \
+xauth \
+xvfb
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
