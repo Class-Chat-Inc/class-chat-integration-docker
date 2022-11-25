@@ -32,11 +32,9 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
-RUN yum update
+RUN apk update
 
-RUN yum install -y procps && rm -rf /var/lib/apt/lists/*
-
-RUN yum install -y libgtk2.0-0 \
+RUN apk add -y libgtk2.0-0 \
 libgtk-3-0 \
 libgbm-dev \
 libnotify-dev \
