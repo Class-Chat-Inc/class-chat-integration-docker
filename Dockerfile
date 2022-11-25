@@ -1,8 +1,8 @@
-FROM cypress/browsers:latest
+FROM openjdk:18-jdk-oraclelinux8
 
-RUN apt-get update
+RUN yum update
 
-RUN apt-get install -y libgtk2.0-0 \
+RUN yum install -y libgtk2.0-0 \
 libgtk-3-0 \
 libgbm-dev \
 libnotify-dev \
@@ -21,7 +21,7 @@ findutils
 
 # FROM openjdk:18-jdk-oraclelinux8
 
-# RUN microdnf install findutils git
+RUN microdnf install findutils git
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
