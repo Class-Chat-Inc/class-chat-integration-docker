@@ -21,7 +21,7 @@ RUN apt-get update
     # apt-get install -y ant && \
     # apt-get clean;
 
-RUN sudo apt-get install -y openjdk-8-jdk
+RUN apt-get install -y openjdk-8-jdk
     
 # Fix certificate issues
 RUN apt-get update && \
