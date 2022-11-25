@@ -17,15 +17,11 @@ FROM cypress/base:latest
 
 # Install OpenJDK-8
 RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository ppa:webupd8team/java && \
-apt-get update && \
-apt-get install -y oracle-java8-installer
+    # && apt-get install -y openjdk-8-jdk && \
+    # apt-get install -y ant && \
+    # apt-get clean;
 
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get install -y ant && \
-    apt-get clean;
+RUN sudo apt-get install -y openjdk-8-jdk
     
 # Fix certificate issues
 RUN apt-get update && \
