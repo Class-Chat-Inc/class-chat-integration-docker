@@ -16,7 +16,7 @@ xvfb \
 findutils
 
 # Install OpenJDK-8
-RUN apt-get install -y openjdk-18-jdk && \
+RUN apt-get install -y openjdk-8-jdk && \
     apt-get install -y ant && \
     apt-get clean;
     
@@ -27,7 +27,7 @@ RUN apt-get update && \
     update-ca-certificates -f;
 
 # Setup JAVA_HOME -- useful for docker commandline
-ENV JAVA_HOME /usr/lib/jvm/java-18-openjdk-amd64/
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 
 # RUN apt update
