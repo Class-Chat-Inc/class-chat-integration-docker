@@ -17,7 +17,7 @@ findutils
 
 RUN apt update
 
-RUN apt install git-all
+RUN apt install -y git-all
 
 # FROM openjdk:18-jdk-oraclelinux8
 
