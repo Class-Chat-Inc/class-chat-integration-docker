@@ -1,8 +1,8 @@
-FROM openjdk:18-jdk-oraclelinux8
+FROM cypress/browsers:latest
 
-# RUN yum update
+RUN apt-get update
 
-RUN rpm -i libgtk2.0-0 \
+RUN apt-get install -y libgtk2.0-0 \
 libgtk-3-0 \
 libgbm-dev \
 libnotify-dev \
@@ -15,13 +15,28 @@ xauth \
 xvfb \
 findutils
 
+# Install OpenJDK-8
+RUN apt-get install -y openjdk-18-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+    
+# Fix certificate issues
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-18-openjdk-amd64/
+RUN export JAVA_HOME
+
 # RUN apt update
 
 # RUN apt install -y git-all
 
 # FROM openjdk:18-jdk-oraclelinux8
 
-RUN microdnf install findutils git
+# RUN microdnf install findutils git
 
 ARG MAVEN_VERSION=3.8.6
 ARG USER_HOME_DIR="/root"
