@@ -13,8 +13,11 @@ libasound2 \
 libxtst6 \
 xauth \
 xvfb \
-findutils \
-git-all
+findutils
+
+RUN apt update
+
+RUN apt install git-all
 
 # FROM openjdk:18-jdk-oraclelinux8
 
