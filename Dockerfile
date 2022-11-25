@@ -16,6 +16,10 @@ FROM cypress/base:latest
 # findutils
 
 # Install OpenJDK-8
+RUN add-apt-repository ppa:webupd8team/java && \
+apt-get update && \
+apt-get install oracle-java8-installer
+
 RUN apt-get update && \
     apt-get install -y openjdk-8-jdk && \
     apt-get install -y ant && \
