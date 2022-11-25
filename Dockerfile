@@ -1,4 +1,4 @@
-FROM cypress/base:latest
+FROM cypress/included:latest
 
 FROM openjdk:18-jdk-oraclelinux8
 
